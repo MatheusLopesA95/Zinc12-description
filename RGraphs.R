@@ -13,28 +13,32 @@ Molecules
 boxplot(Molecules$NumAtoms)
 mean(Molecules$NumAtoms) #mean = 21.01
 median(Molecules$NumAtoms) #median = 21
-hist(Molecules$NumAtoms) #histogram
+hist(Molecules$NumAtoms, main = "Histogram: Number of Atoms", border = "white", col = "darkblue", 
+     xlab = "NumAtoms")
 
 
 #Exploratory analysis of Molecular Weight
 boxplot(Molecules$MolWt)
 mean(Molecules$MolWt) #mean = 300.88
 median(Molecules$MolWt) #median = 301.14
-hist(Molecules$MolWt)
+hist(Molecules$MolWt, main = "Histogram: Molecular Weight", border = "white", col = "darkblue", 
+     xlab = "MolWt")
 
 
 #Exploratory analysis of TPSA
 boxplot(Molecules$TPSA)
 mean(Molecules$TPSA) #mean = 67.45
 median(Molecules$TPSA) #median = 66.04
-hist(Molecules$TPSA)
+hist(Molecules$TPSA, main = "Histogram: TPSA", border = "white", col = "darkblue", 
+     xlab = "TPSA")
 
 
 #Exploratory analysis of MolLogp
 boxplot(Molecules$MolLogp)
 mean(Molecules$MolLogp) #mean = 2.28
 median(Molecules$MolLogp) #median = 2.48
-hist(Molecules$MolLogp)
+hist(Molecules$MolLogp, main = "Histogram: MolLogp", border = "white", col = "darkblue", 
+     xlab = "MolLogp")
 
 
 #Exploratory analysis of RingCount
@@ -77,6 +81,3 @@ Molecules$ZINC_ID[index]
 #Selecting the ID of molecules that have regions with better Hydrogen acceptors
 HighHAccept <- filter(Molecules, HAcceptors >= 10)
 select(HighHAccept, ZINC_ID)
-
-
-
