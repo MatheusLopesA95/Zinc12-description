@@ -77,3 +77,6 @@ Molecules$ZINC_ID[index]
 #Selecting the ID of molecules that have regions with better Hydrogen acceptors
 HighHAccept <- filter(Molecules, HAcceptors >= 10)
 select(HighHAccept, ZINC_ID)
+
+
+
