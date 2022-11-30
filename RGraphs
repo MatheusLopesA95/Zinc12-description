@@ -56,7 +56,7 @@ RingCount
 Rotable<- data.frame(Molecules %>% count(RotableBonds))
 Rotable
 Rotableplot <- barplot(Rotable$n~Rotable$RotableBonds, 
-        main = "Rotable Bonds", 
+        main = "Rotatable Bonds", 
         border = "darkblue", 
         col = "darkblue", 
         xlab = "Number of Rotatable bonds",
