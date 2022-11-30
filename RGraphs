@@ -59,7 +59,7 @@ Rotableplot <- barplot(Rotable$n~Rotable$RotableBonds,
         main = "Rotable Bonds", 
         border = "darkblue", 
         col = "darkblue", 
-        xlab = "Number of Rotable bonds",
+        xlab = "Number of Rotatable bonds",
         ylab = "")
 
 #Exploratory analysis of HAcceptors
