@@ -52,7 +52,7 @@ Ringplot <- barplot(RingCount$n~RingCount$RindCount,
 RingCount
 
 #Exploratory analysis of Rotatable Bonds
-#Barplot Rotable bonds
+#Barplot Rotatable bonds
 Rotable<- data.frame(Molecules %>% count(RotableBonds))
 Rotable
 Rotableplot <- barplot(Rotable$n~Rotable$RotableBonds, 
