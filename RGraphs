@@ -1,13 +1,13 @@
 #Importing and installing ggplot library
 install.packages('tidyverse')
+install.packages("ggpubr")
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 
 #Reading the csv file and printing it
-Molecules <- read.csv("File_name_real.csv", header = T, sep=";")
+Molecules <- read.csv("File_name.csv", header = T, sep=";")
 Molecules
-
 
 #Exploratory analysis of the Number of Atoms
 boxplot(Molecules$NumAtoms)
@@ -40,8 +40,50 @@ median(Molecules$MolLogp) #median = 2.48
 hist(Molecules$MolLogp, main = "Histogram: MolLogp", border = "white", col = "darkblue", 
      xlab = "MolLogp")
 
-
 #Exploratory analysis of RingCount
+#Barplot Ring Count
+RingCount<- data.frame(Molecules %>% count(RindCount))
+Ringplot <- barplot(RingCount$n~RingCount$RindCount, 
+        main = "Ring Count", 
+        border = "darkblue", 
+        col = "darkblue", 
+        xlab = "Number of Rings",
+        ylab="")
+RingCount
+
+#Exploratory analysis of Rotable Bonds
+#Barplot Rotable bonds
+Rotable<- data.frame(Molecules %>% count(RotableBonds))
+Rotable
+Rotableplot <- barplot(Rotable$n~Rotable$RotableBonds, 
+        main = "Rotable Bonds", 
+        border = "darkblue", 
+        col = "darkblue", 
+        xlab = "Number of Rotable bonds",
+        ylab = "")
+
+#Exploratory analysis of HAcceptors
+Haceptor<- data.frame(Molecules %>% count(HAcceptors))
+Haceptor
+Haceptorplot <- barplot(Haceptor$n~Haceptor$HAcceptors, 
+        main = "Number of regions H acceptors", 
+        border = "darkblue", 
+        col = "darkblue", 
+        xlab = "",
+        ylab = "")
+
+#Exploratory analysis of HDonors
+Hdon<- data.frame(Molecules %>% count(HDonors))
+Hdon
+Hdonplot<-barplot(Hdon$n~Hdon$HDonors, 
+        main = "Number of regions H donors", 
+        border = "darkblue", 
+        col = "darkblue", 
+        xlab = "",
+        ylab = "")
+
+names(Molecules)
+
 #Creating graphic to better understand the correlation
 ggplot(data=Molecules) + geom_point(mapping = aes(x=TPSA, y=HDonors, colour=HAcceptors)) + geom_smooth(mapping = aes(x=TPSA, y=HDonors))
 cor.test(x=Molecules$TPSA, y=Molecules$HDonors, method = "pearson")
